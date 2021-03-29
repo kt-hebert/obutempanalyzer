@@ -1,0 +1,16 @@
+---
+title: "Temperaturesensor"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+# This project is analyzing humidity levels with a sensor probe on a raspberry pi. 
+# Austin and I are writing a program to meausre the humidity levels. 
+# The goal is to write a sufficent program that can analzye the data the probe is going to read. 
+# The sensor probe has been ordered. I have downloaded the programs onto the raspberry pi that are needed for the sensor. 
+# Installed the newest version of Raspbian to communicate with the probe. 
+# It is a one wire temperature sensor. 
