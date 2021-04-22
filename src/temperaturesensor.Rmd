@@ -14,3 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # The sensor probe has been ordered. I have downloaded the programs onto the raspberry pi that are needed for the sensor. 
 # Installed the newest version of Raspbian to communicate with the probe. 
 # It is a one wire temperature sensor. 
+```{r}
+
+```
+
