@@ -5,7 +5,7 @@ import time
  
 # make sure latest raspberry pi version is installed
 # this is based on DS18B20 sensor 
-# Note: must add dtoverlay=w1-gpio to /boot/config.text of the raspberry pi sim card
+# Note: must add dtoverlay=w1-gpio to /boot/config.text of the raspberry pi SD card
 
 # load kernal modules for sensor
 os.system('modprobe w1-gpio')
