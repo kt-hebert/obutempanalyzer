@@ -14,6 +14,7 @@ os.system('modprobe w1-therm')
 # temperature sensor output file
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
+delay_timer = 60
 device_file = device_folder + '/w1_slave'
 fo=open("/var/www/html/temp.txt", "w")
 # read temperature file line
@@ -43,6 +44,6 @@ while True:
     fo.write(str(temp))
     fo.flush()
     print(read_temp())
-    time.sleep(1)
+    time.sleep(60)
     fo.seek(0,0)
 
