@@ -1,0 +1,20 @@
+---
+title: "tempprope.Rmd"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+To set up the temperature sensor, you will have to have a raspberry pi. On the terminal the yellow wire will connect to DAT
+The red wire will connect to VCC
+and the black wire will connect to GND
+On the raspberry pi, the red wire will connect to the 3.3 V. The yellow wire will connect to the GPIO 4. The black wire will connect to the GND. 
+
+Add the line /boot/config.txt
+dtoverlay= w1-gpio, gpiopin=4
+
+Based on searching for a code that can easily maintain the sensor, I used linux kernal. I Used python to extract the temperature read out from the linux kernal. Displayed on a terminal window and saved to a file in a web server default home directory. This was viewing for the current temperature from a home page. There was a delayed time varaible that was added to set the sample time interval. This was able to control the time interval. 
+The temperature sensor was ran for 24 hours in order to see if it was possible. Also it ran for 24 hours, and a temperature was read every 60 seconds. This was easiest time sample to be plotted. 
