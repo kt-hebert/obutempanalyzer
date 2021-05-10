@@ -5,7 +5,7 @@ import time
  
 # make sure latest raspberry pi version is installed
 # this is based on DS18B20 sensor 
-# Note: must add dtoverlay=w1-gpio to /boot/config.text of the raspberry pi sim card
+# Note: must add dtoverlay=w1-gpio to /boot/config.text of the raspberry pi SD card
 
 # load kernal modules for sensor
 os.system('modprobe w1-gpio')
@@ -14,8 +14,9 @@ os.system('modprobe w1-therm')
 # temperature sensor output file
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
+delay_timer = 60
 device_file = device_folder + '/w1_slave'
-
+fo=open("/var/www/html/temp.txt", "w")
 # read temperature file line
 def read_temp_line():
     f = open(device_file, 'r')
@@ -34,9 +35,15 @@ def read_temp():
         temp_string = lines[1][equals_pos+2:]
         temp_c = float(temp_string) / 1000.0
         temp_f = temp_c * 9.0 / 5.0 + 32.0
-        return temp_c, temp_f
+        return  temp_f
 
-# main test print celsius, fahrenheit 
+# main test print fahrenheit 
+# added ability to write temperature to a file
 while True:
+    temp = read_temp()
+    fo.write(str(temp))
+    fo.flush()
     print(read_temp())
-    time.sleep(1)
+    time.sleep(60)
+    fo.seek(0,0)
+
